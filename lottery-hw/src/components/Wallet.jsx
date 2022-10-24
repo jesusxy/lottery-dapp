@@ -27,8 +27,9 @@ const Wallet = ({provider}) => {
     const getWalletBalance = async (_newAccount) => {
         setAccount(_newAccount);
         try {
-            const balance = await provider.getBalance(_newAccount);
-            setWalletBalance(ethers.utils.formatEther(balance));
+            let balance = await provider.getBalance(_newAccount);
+            balance = ethers.utils.formatEther(balance)
+            setWalletBalance((+balance).toFixed(4));
             setIsConnected(true);
         } catch(err) {
             console.error(err);

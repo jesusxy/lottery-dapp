@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 66px;
@@ -40,4 +29,30 @@
 
 .App-content {
   padding: 30px 0px;
+}
+
+.App-lottery {
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-lottery-pool {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.App-enter-lottery {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.App-lottery-button {
+  margin-top: 30px;
+  width: 150px;
+  height: 55px;
+  border-radius: 5px;
+  background-color: lemonchiffon;
 }
