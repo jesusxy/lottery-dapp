@@ -54,10 +54,14 @@ Only issue I was able to observe is the closing time not displaying correctly on
 ###### Function exection-> `placeBet( )`
 
 This function transfers `betFee + betPrice` from user to the Lottery contract.
-```lotteryToken.transferFrom(msg.sender, address(this), betPrice + betFee);```
+```
+lotteryToken.transferFrom(msg.sender, address(this), betPrice + betFee);
+```
 
 When called the transaction was reverted with the following error: 
-```Error: cannot estimate gas; transaction may fail or may require manual gas limit```
+```
+Error: cannot estimate gas; transaction may fail or may require manual gas limit
+```
 
 I believe this is due to my metamask account not having sufficient funds. 
 `betFee = 0.2 eth` and `betPrice = 0.5`, while my account balance was only 1.7 goerliEth.
