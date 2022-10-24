@@ -3,7 +3,7 @@ import { ethers } from "ethers";
 import "../styles/Wallet.scss";
 
 
-const Wallet = () => {
+const Wallet = ({provider}) => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [account, setAccount] = useState(null);
     const [isConnected, setIsConnected] = useState(false);
@@ -13,7 +13,7 @@ const Wallet = () => {
         if(window.ethereum){
             try {
                 const res = await window.ethereum.request({ method: 'eth_requestAccounts'});
-                await accountsChanged(res[0]);
+                await getWalletBalance(res[0]);
             } catch(err){
                 console.log('Error Connecting: ', err);
                 setErrorMessage('There was a problem connecting to MetaMask')
@@ -24,13 +24,10 @@ const Wallet = () => {
     }
 
 
-    const accountsChanged = async (_newAccount) => {
+    const getWalletBalance = async (_newAccount) => {
         setAccount(_newAccount);
         try {
-            const balance = await window.ethereum.request({
-                method: "eth_getBalance",
-                params: [_newAccount.toString(), "latest"],
-            });
+            const balance = await provider.getBalance(_newAccount);
             setWalletBalance(ethers.utils.formatEther(balance));
             setIsConnected(true);
         } catch(err) {
