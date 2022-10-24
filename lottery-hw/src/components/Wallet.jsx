@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
+import "../styles/Wallet.scss";
 
 
 const Wallet = () => {
@@ -41,15 +42,17 @@ const Wallet = () => {
 
 
     return(
-        <div>
+        <div className="Wallet">
             { isConnected 
-            ? <div> 
+            ? <div className="Wallet__details"> 
                 <span>Successfully Connected to Wallet : {account.slice(0,4)}...{account.slice(38.42)}</span>
-                <h3>Wallet Balance</h3>
-                <span>{walletBalance}</span>
+                <div className="Wallet__balance">
+                    <h3>Wallet Balance: </h3>
+                    <span>{walletBalance}</span>
+                </div>
               </div>
             : 
-                <div>
+                <div className="Wallet__connect">
                     <span>Please connect your Wallet before playing</span>
                     <button onClick={connectWallet}>Connect Wallet</button>
                     {errorMessage && (

@@ -1,0 +1,28 @@
+.Wallet {
+
+}
+
+.Wallet__details {
+    margin-top: 15px;
+}
+
+.Wallet__balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    & h3 {
+        margin-right: 20px;
+    }
+}
+
+.Wallet__connect {
+    margin-top: 20px;
+
+    & button {
+        margin-left: 15px;
+    }
+}
+
+
+
