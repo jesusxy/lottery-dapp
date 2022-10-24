@@ -1,4 +1,4 @@
-# Lesson 12 Weekend Homework - Oct 22/23
+# Lottery dApp Weekend Homework - Oct 22/23
 
 This README file has our reports that go over each function execution, transaction hash, or the revert reason (if there was one) when 
 interacting with the Lottery.sol contract.
